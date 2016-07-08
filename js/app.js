@@ -63,34 +63,33 @@ $(document).ready(function(){
 		return randNumber
 	}
 	function checkGuessedNumber(){
+			var guessDistance=Math.abs(userGuess-randomNumber);
 		if (userGuess == randomNumber){
 			setFeedback("You guessed it! Great job! Click New Game to play again!");
 			return gameOver=true;
 		}
-		else if (Math.abs(userGuess-randomNumber) > 49){
+		else if (guessDistance>49){
 			setFeedback("Ice Cold!!");
 		}
-		else if (Math.abs(userGuess-randomNumber) > 29){
+		else if (guessDistance>29){
 			setFeedback("Cold!!");
 		}
-		else if (Math.abs(userGuess-randomNumber) > 14){
+		else if (guessDistance>14){
 			setFeedback("Warm!!");
 		}
-		else if (Math.abs(userGuess-randomNumber) > 9){
+		else if (guessDistance>9){
 			setFeedback("Hot!!");
 		}
-		else if (Math.abs(userGuess-randomNumber) > 4){
+		else if (guessDistance>4){
 			setFeedback("Very Hot!!");
 		}
-		else if (Math.abs(userGuess-randomNumber) >= 1){
+		else if (guessDistance>=1){
 			setFeedback("On FIRE!!");
 		}
 	}
 	function checkInputNumberFormat(){
-		if (userGuess > -1 && userGuess <= 100){
-			if (userGuess % 1 == 0){
+		if (userGuess > -1 && userGuess <= 100 && userGuess % 1 == 0){
 			return numberFormat=true;
-			}
 		}
 		alert("Cm'on DUDE!!! Enter an Integer between 1-100!")
 		return numberFormat=false;
