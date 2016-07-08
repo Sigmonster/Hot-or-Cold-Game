@@ -29,7 +29,6 @@ $(document).ready(function(){
 	$("form").submit(function(event){
 		event.preventDefault();
 		getUserGuess();
-
 	});
 	/*My Functions*/
 	function getUserGuess(){
