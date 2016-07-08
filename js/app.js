@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 	$("form").submit(function(event){
 		event.preventDefault();
-		getUserGuess();
+		getUserGuess();	//sets control flow for the game
 		$("#userGuess").val("");
 		$("#userGuess").focus();
 	});
@@ -68,24 +68,18 @@ $(document).ready(function(){
 			setFeedback("You guessed it! Great job! Click New Game to play again!");
 			return gameOver=true;
 		}
-		else if (guessDistance>49){
-			setFeedback("Ice Cold!!");
-		}
-		else if (guessDistance>29){
+		else if (guessDistance>49)
+			setFeedback("Ice Cold!!")
+		else if (guessDistance>29)
 			setFeedback("Cold!!");
-		}
-		else if (guessDistance>14){
+		else if (guessDistance>14)
 			setFeedback("Warm!!");
-		}
-		else if (guessDistance>9){
+		else if (guessDistance>9)
 			setFeedback("Hot!!");
-		}
-		else if (guessDistance>4){
+		else if (guessDistance>4)
 			setFeedback("Very Hot!!");
-		}
-		else if (guessDistance>=1){
+		else
 			setFeedback("On FIRE!!");
-		}
 	}
 	function checkInputNumberFormat(){
 		if (userGuess > -1 && userGuess <= 100 && userGuess % 1 == 0){
