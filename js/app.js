@@ -28,6 +28,8 @@ $(document).ready(function(){
 	$("form").submit(function(event){
 		event.preventDefault();
 		getUserGuess();
+		$("#userGuess").val("");
+		$("#userGuess").focus();
 	});
 
 	/*My Functions*/
@@ -36,8 +38,6 @@ $(document).ready(function(){
 			setFeedback("Woah! You already won this game. Click New Game to play again!");
 		}
 		userGuess = $("#userGuess").val();
-		$("#userGuess").val("");
-		$("#userGuess").focus();
 		if (gameOver==false){
 			numberFormat=checkInputNumberFormat();
 			if (numberFormat==true){
@@ -60,7 +60,7 @@ $(document).ready(function(){
 	}
 	function generateRandomNumber(){
 		var randNumber = Math.floor((Math.random()*100)+1);
-		return randNumber
+		return randNumber;
 	}
 	function checkGuessedNumber(){
 			var guessDistance=Math.abs(userGuess-randomNumber);
